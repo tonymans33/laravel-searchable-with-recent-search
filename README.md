@@ -1,4 +1,4 @@
-# Laravel Searchable
+# Laravel Searchable with Recent Search Feature
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-searchable)
 [![run-tests](https://github.com/spatie/laravel-searchable/actions/workflows/run-tests.yml/badge.svg)](https://github.com/spatie/laravel-searchable/actions/workflows/run-tests.yml)
@@ -35,23 +35,86 @@ There are {{ $searchResults->count() }} results.
 
 In this example we used models, but you can easily add a search aspect for an external API, list of files or an array of values.
 
-## Support us
+---
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-searchable.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-searchable)
+## Recent Search Feature
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+### About
+This package now includes a recent search feature that allows tracking, retrieving, and managing user searches efficiently.
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+### Installation
 
-## Installation
+1. **Publish Config and Migration Files**
 
-You can install the package via composer:
+    Run the following command to publish the configuration and migration files:
 
-```bash
-composer require spatie/laravel-searchable
+    ```bash
+    php artisan vendor:publish --tag=recent-search-config
+    php artisan vendor:publish --tag=recent-search-migrations
+    ```
+
+2. **Run Migrations**
+
+    After publishing the migration files, migrate your database:
+
+    ```bash
+    php artisan migrate
+    ```
+
+3. **Update the Config File**
+
+    In the `config/recentsearch.php` file, set the `user_model` to your User model:
+
+    ```php
+    'user_model' => App\Models\User::class,
+    ```
+
+### Usage
+
+#### Add the Trait
+To enable recent search functionality for a model, add the `HasRecentSearchTrait` to it:
+
+```php
+use HasRecentSearchTrait;
 ```
 
-## Usage
+#### Available Functions
+
+- **Store a Recent Search**
+
+    ```php
+    User::storeRecentSearch($request->q);
+    ```
+
+    This saves the recent search query for the user.
+
+- **Retrieve Recent Searches**
+
+    ```php
+    $recentSearches = User::getRecentSearches();
+    ```
+
+    This retrieves all recent searches for the user.
+
+- **Delete a Specific Search Record**
+
+    ```php
+    User::deleteRecentSearchRecord($id);
+    ```
+
+    This deletes a specific search record by its ID.
+
+- **Clear All Recent Searches**
+
+    ```php
+    User::clearRecentSearches();
+    ```
+
+    This clears all recent search records for the user.
+
+---
+
+## Original Features
 
 ### Preparing your models
 
@@ -87,136 +150,18 @@ class BlogPost extends Model implements Searchable
 }
 ```
 
-### Searching models
-
-With the models prepared you can search them like this:
-
-```php
-$searchResults = (new Search())
-   ->registerModel(User::class, 'name')
-   ->search('john');
-```
-
-The search will be performed case insensitive. `$searchResults` now contains all `User` models that contain `john` in the `name` attribute.
-
-You can also pass multiple attributes to search through:
-
-```php
-// use multiple model attributes
-
-$searchResults = (new Search())
-   ->registerModel(User::class, 'first_name', 'last_name')
-   ->search('john');
-   
-// or use an array of model attributes
-
-$searchResults = (new Search())
-   ->registerModel(User::class, ['first_name', 'last_name'])
-   ->search('john');
-```
-
-To get fine grained control you can also use a callable. This way you can also search for exact matches, apply scopes, eager load relationships, or even filter your query like you would using the query builder.
-
-```php
-$search = (new Search())
-   ->registerModel(User::class, function(ModelSearchAspect $modelSearchAspect) {
-       $modelSearchAspect
-          ->addSearchableAttribute('name') // return results for partial matches on usernames
-          ->addExactSearchableAttribute('email') // only return results that exactly match the e-mail address
-          ->active()
-          ->has('posts')
-          ->with('roles');
-});
-```
-
-### Creating custom search aspects
-
-You are not limited to only registering basic models as search aspects. You can easily create your own, custom search aspects by extending the `SearchAspect` class.
-
-Consider the following custom search aspect to search an external API:
-
-```php
-class OrderSearchAspect extends SearchAspect
-{
-    public function getResults(string $term): Collection
-    {
-        return OrderApi::searchOrders($term);
-    }
-}
-```
-
-This is how you can use it:
-
-```php
-$searchResults = (new Search())
-   ->registerAspect(OrderSearchAspect::class)
-   ->search('john');
-```
-
-### Limiting aspect results
-
-It is possible to limit the amount of results returned by each aspect by calling `limitAspectResults` prior to performing the search.
-
-```php
-$searchResults = (new Search())
-    ->registerAspect(BlogPostAspect::class)
-    ->limitAspectResults(50)
-    ->search('How To');
-```
-
-### Rendering search results
-
-Here's an example on rendering search results:
-
-```blade
-<h1>Search</h1>
-
-There are {{ $searchResults->count() }} results.
-
-@foreach($searchResults->groupByType() as $type => $modelSearchResults)
-   <h2>{{ $type }}</h2>
-   
-   @foreach($modelSearchResults as $searchResult)
-       <ul>
-            <a href="{{ $searchResult->url }}">{{ $searchResult->title }}</a>
-       </ul>
-   @endforeach
-@endforeach
-```
-
-You can customize the `$type` by adding a public property `$searchableType` on your model or custom search aspect
-
-```php
-class BlogPost extends Model implements Searchable
-{
-    public $searchableType = 'custom named aspect';
-}
-```
-
-### Testing
-
-```bash
-composer test
-```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-### Security
-
-If you've found a bug regarding security please mail [security@spatie.be](mailto:security@spatie.be) instead of using the issue tracker.
+---
 
 ## Credits
 
 - [Alex Vanderbist](https://github.com/AlexVanderbist)
 - [Freek Van der Herten](https://github.com/freekmurze)
+- [Tony Mansour](https://github.com/tonymans33) (<mansourtony44@gmail.com>)
 - [All Contributors](../../contributors)
+
+---
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
