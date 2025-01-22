@@ -1,9 +1,8 @@
 {
-    "name": "spatie/laravel-searchable",
-    "description": "Pragmatically search through models and other sources",
+    "name": "tonymans33/laravel-searchable-with-recent-search",
+    "description": "Pragmatically search through models and other sources, with a recent search feature. build on top of Spatie Searchable.",
     "keywords": [
-        "spatie",
-        "laravel-searchable"
+        "laravel-searchable-with-recent-search"
     ],
     "homepage": "https://github.com/tonymans33/laravel-searchable-with-recent-search",
     "license": "MIT",
