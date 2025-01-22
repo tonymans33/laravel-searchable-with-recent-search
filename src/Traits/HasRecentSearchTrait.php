@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Traits;
+namespace Spatie\Searchable\Traits;
 
-use App\Models\RecentSearches\RecentSearch;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Spatie\Searchable\RecentSearch;
 
-trait RecentSearchTrait
+trait HasRecentSearchTrait
 {
     /**
      * Get all recent searches for this model type

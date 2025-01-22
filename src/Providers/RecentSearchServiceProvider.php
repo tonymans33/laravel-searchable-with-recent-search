@@ -1,6 +1,6 @@
 <?php
 
-namespace YourVendor\YourPackage\Providers;
+namespace Spatie\Searchable\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

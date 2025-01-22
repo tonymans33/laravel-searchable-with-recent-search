@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Models\RecentSearches;
+namespace Spatie\Searchable;
+ 
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
