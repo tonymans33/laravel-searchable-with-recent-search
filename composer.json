@@ -5,7 +5,7 @@
         "spatie",
         "laravel-searchable"
     ],
-    "homepage": "https://github.com/spatie/laravel-searchable",
+    "homepage": "https://github.com/tonymans33/laravel-searchable-with-recent-search",
     "license": "MIT",
     "authors": [
         {
@@ -15,10 +15,10 @@
             "role": "Developer"
         },
         {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
-            "homepage": "https://spatie.be",
-            "role": "Developer"
+            "name": "Tony Mansour",
+            "email": "mansourtony44@gmail.com",
+            "homepage": "https://github.com/tonymans33",
+            "role": "Backend Developer"
         }
     ],
     "minimum-stability": "dev",
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Searchable\\": "src"
+            "TonyMans33\\RecentSearch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Searchable\\Tests\\": "tests"
+            "TonyMans33\\RecentSearch\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -53,7 +53,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Searchable\\Providers\\RecentSearchServiceProvider"
+                "TonyMans33\\RecentSearch\\Providers\\RecentSearchServiceProvider"
             ]
         }
     }
