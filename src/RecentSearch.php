@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable;
+namespace Tonymans33\SearchableWithRecent;
  
 
 use Illuminate\Database\Eloquent\Model;

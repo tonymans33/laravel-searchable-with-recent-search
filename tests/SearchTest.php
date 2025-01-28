@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\Searchable\Tests;
+namespace Tonymans33\SearchableWithRecent\Tests;
 
 use Illuminate\Support\Arr;
 use ReflectionObject;
-use Spatie\Searchable\ModelSearchAspect;
-use Spatie\Searchable\Search;
-use Spatie\Searchable\Tests\Models\TestModel;
-use Spatie\Searchable\Tests\stubs\CustomNameSearchAspect;
+use Tonymans33\SearchableWithRecent\ModelSearchAspect;
+use Tonymans33\SearchableWithRecent\Search;
+use Tonymans33\SearchableWithRecent\Tests\Models\TestModel;
+use Tonymans33\SearchableWithRecent\Tests\stubs\CustomNameSearchAspect;
 
 class SearchTest extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Searchable\Tests;
+namespace Tonymans33\SearchableWithRecent\Tests;
 
-use Spatie\Searchable\Tests\stubs\CustomNameSearchAspect;
+use Tonymans33\SearchableWithRecent\Tests\stubs\CustomNameSearchAspect;
 
 class SearchAspectTest extends TestCase
 {

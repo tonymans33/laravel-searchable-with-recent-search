@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\Searchable\Tests;
+namespace Tonymans33\SearchableWithRecent\Tests;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use ReflectionObject;
-use Spatie\Searchable\Exceptions\InvalidModelSearchAspect;
-use Spatie\Searchable\Exceptions\InvalidSearchableModel;
-use Spatie\Searchable\ModelSearchAspect;
-use Spatie\Searchable\Tests\Models\TestModel;
+use Tonymans33\SearchableWithRecent\Exceptions\InvalidModelSearchAspect;
+use Tonymans33\SearchableWithRecent\Exceptions\InvalidSearchableModel;
+use Tonymans33\SearchableWithRecent\ModelSearchAspect;
+use Tonymans33\SearchableWithRecent\Tests\Models\TestModel;
 
 class ModelSearchAspectTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable;
+namespace Tonymans33\SearchableWithRecent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -8,8 +8,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Traits\ForwardsCalls;
-use Spatie\Searchable\Exceptions\InvalidModelSearchAspect;
-use Spatie\Searchable\Exceptions\InvalidSearchableModel;
+use Tonymans33\SearchableWithRecent\Exceptions\InvalidModelSearchAspect;
+use Tonymans33\SearchableWithRecent\Exceptions\InvalidSearchableModel;
 
 /**
  * @mixin Builder
@@ -36,7 +36,7 @@ class ModelSearchAspect extends SearchAspect
      * @param string $model
      * @param array|\Closure $attributes
      *
-     * @throws \Spatie\Searchable\Exceptions\InvalidSearchableModel
+     * @throws \Tonymans33\SearchableWithRecent\Exceptions\InvalidSearchableModel
      */
     public function __construct(string $model, $attributes = [])
     {

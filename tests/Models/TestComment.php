@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable\Tests\Models;
+namespace Tonymans33\SearchableWithRecent\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

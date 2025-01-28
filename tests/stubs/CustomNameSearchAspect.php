@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Searchable\Tests\stubs;
+namespace Tonymans33\SearchableWithRecent\Tests\stubs;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Spatie\Searchable\SearchAspect;
+use Tonymans33\SearchableWithRecent\SearchAspect;
 
 class CustomNameSearchAspect extends SearchAspect
 {

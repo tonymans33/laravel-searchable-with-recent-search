@@ -121,7 +121,7 @@ use HasRecentSearchTrait;
 In order to search through models you'll have to let them implement the `Searchable` interface.
 
 ```php
-namespace Spatie\Searchable;
+namespace Tonymans33\SearchableWithRecent;
 
 interface Searchable
 {
@@ -132,8 +132,8 @@ interface Searchable
 You'll only need to add a `getSearchResult` method to each searchable model that must return an instance of `SearchResult`. Here's how it could look like for a blog post model.
 
 ```php
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
+use Tonymans33\SearchableWithRecent\Searchable;
+use Tonymans33\SearchableWithRecent\SearchResult;
 
 class BlogPost extends Model implements Searchable
 {
@@ -141,7 +141,7 @@ class BlogPost extends Model implements Searchable
      {
         $url = route('blogPost.show', $this->slug);
      
-         return new \Spatie\Searchable\SearchResult(
+         return new \Tonymans33\SearchableWithRecent\SearchResult(
             $this,
             $this->title,
             $url

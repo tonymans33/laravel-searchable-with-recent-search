@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Searchable\Tests\stubs;
+namespace Tonymans33\SearchableWithRecent\Tests\stubs;
 
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
+use Tonymans33\SearchableWithRecent\Searchable;
+use Tonymans33\SearchableWithRecent\SearchResult;
 
 class Account implements Searchable
 {

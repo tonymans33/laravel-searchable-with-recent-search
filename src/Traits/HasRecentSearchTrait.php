@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Searchable\Traits;
+namespace Tonymans33\SearchableWithRecent\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Spatie\Searchable\RecentSearch;
+use Tonymans33\SearchableWithRecent\RecentSearch;
 
 trait HasRecentSearchTrait
 {

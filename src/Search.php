@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable;
+namespace Tonymans33\SearchableWithRecent;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Arr;
@@ -10,9 +10,9 @@ class Search
     protected $aspects = [];
 
     /**
-     * @param string|\Spatie\Searchable\SearchAspect $searchAspect
+     * @param string|\Tonymans33\SearchableWithRecent\SearchAspect $searchAspect
      *
-     * @return \Spatie\Searchable\Search
+     * @return \Tonymans33\SearchableWithRecent\Search
      */
     public function registerAspect($searchAspect): self
     {

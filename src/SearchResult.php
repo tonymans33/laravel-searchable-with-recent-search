@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Searchable;
+namespace Tonymans33\SearchableWithRecent;
 
 class SearchResult
 {
-    /** @var \Spatie\Searchable\Searchable */
+    /** @var \Tonymans33\SearchableWithRecent\Searchable */
     public $searchable;
 
     /** @var string */

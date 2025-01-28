@@ -34,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Searchable\\": "src/"
+            "Tonymans33\\SearchableWithRecent\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Searchable\\Tests\\": "tests"
+            "Tonymans33\\SearchableWithRecent\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Searchable\\Providers\\RecentSearchServiceProvider"
+                "Tonymans33\\SearchableWithRecent\\Providers\\RecentSearchServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable\Exceptions;
+namespace Tonymans33\SearchableWithRecent\Exceptions;
 
 use Exception;
 

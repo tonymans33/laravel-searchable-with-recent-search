@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Searchable\Tests\Models;
+namespace Tonymans33\SearchableWithRecent\Tests\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
+use Tonymans33\SearchableWithRecent\Searchable;
+use Tonymans33\SearchableWithRecent\SearchResult;
 
 class TestModel extends Model implements Searchable
 {

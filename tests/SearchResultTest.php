@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Searchable\Tests;
+namespace Tonymans33\SearchableWithRecent\Tests;
 
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
+use Tonymans33\SearchableWithRecent\Searchable;
+use Tonymans33\SearchableWithRecent\SearchResult;
 
 class SearchResultTest extends TestCase
 {

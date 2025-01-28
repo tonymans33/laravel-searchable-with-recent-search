@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Searchable\Tests;
+namespace Tonymans33\SearchableWithRecent\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
