@@ -8,18 +8,24 @@ class RecentSearchServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // Load migrations
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        if ($this->app->runningInConsole()) {
+            // Publish migrations with tag
+            $this->publishes([
+                __DIR__ . '/../../database/migrations' => database_path('migrations'),
+            ], 'searchable-recent-migrations');
+            
+            // Publish config with tag
+            $this->publishes([
+                __DIR__ . '/../../config/recentsearch.php' => config_path('recentsearch.php'),
+            ], 'searchable-recent-config');
 
-        // Optional: Load config (if you have config files)
-        $this->publishes([
-            __DIR__ . '/../../config/recentsearch.php' => config_path('recentsearch.php'),
-        ]);
+            // Load migrations
+            $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        }
     }
 
     public function register()
     {
-        // Merge config (if needed)
         $this->mergeConfigFrom(__DIR__ . '/../../config/recentsearch.php', 'recentsearch');
     }
 }
