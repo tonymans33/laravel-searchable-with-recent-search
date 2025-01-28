@@ -44,7 +44,17 @@ This package now includes a recent search feature that allows tracking, retrievi
 
 ### Installation
 
-1. **Publish Config and Migration Files**
+
+1. **Install Package Cia Composer**
+
+    Run the following command to install the package
+
+    ```bash
+    composer require tonymans33/laravel-searchable-with-recent-search
+    ```
+    
+
+2. **Publish Config and Migration Files**
 
     Run the following command to publish the configuration and migration files:
 
@@ -53,7 +63,7 @@ This package now includes a recent search feature that allows tracking, retrievi
     php artisan vendor:publish --tag=recent-search-migrations
     ```
 
-2. **Run Migrations**
+3. **Run Migrations**
 
     After publishing the migration files, migrate your database:
 
@@ -61,7 +71,7 @@ This package now includes a recent search feature that allows tracking, retrievi
     php artisan migrate
     ```
 
-3. **Update the Config File**
+4. **Update the Config File**
 
     In the `config/recentsearch.php` file, set the `user_model` to your User model:
 
