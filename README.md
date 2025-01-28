@@ -59,8 +59,7 @@ This package now includes a recent search feature that allows tracking, retrievi
     Run the following command to publish the configuration and migration files:
 
     ```bash
-    php artisan vendor:publish --tag=recent-search-config
-    php artisan vendor:publish --tag=recent-search-migrations
+    php artisan vendor:publish --provider="Tonymans33\SearchableWithRecent\Providers\RecentSearchServiceProvider"
     ```
 
 3. **Run Migrations**

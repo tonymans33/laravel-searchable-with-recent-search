@@ -37,8 +37,10 @@ trait HasRecentSearchTrait
     /**
      * Get recent searches for this model type
      */
-    public static function getRecentSearches(int $limit = config('recentsearch.recent_search_limit'))
+    public static function getRecentSearches(int $limit = null)
     {
+        $limit = $limit ?? config('recentsearch.limit', 5);
+
         return RecentSearch::forUser(Auth::id())
             ->forType(static::class)
             ->orderBy('last_searched_at', 'desc')

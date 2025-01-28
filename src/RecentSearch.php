@@ -58,7 +58,8 @@ class RecentSearch extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo( config('recentsearch.user_model'));
+        $userModel = config('recentsearch.user_model', \App\Models\User::class);
+        return $this->belongsTo($userModel);
     }
 
     /**
